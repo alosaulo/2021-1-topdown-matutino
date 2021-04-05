@@ -18,15 +18,15 @@ public class PlayerHUD : MonoBehaviour
     void Start()
     {
         player = gameManager.player;
-        maxHealth = player.character.maxHealth;
-        lastHealth = player.character.currentHealth;
+        maxHealth = player.maxHealth;
+        lastHealth = player.currentHealth;
         GenerateHearths();
     }
 
     // Update is called once per frame
     void Update()
     {
-        currentHealth = player.character.currentHealth;
+        currentHealth = player.currentHealth;
         UpdateHearths();
     }
 

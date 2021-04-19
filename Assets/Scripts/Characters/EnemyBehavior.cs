@@ -9,8 +9,10 @@ public abstract class EnemyBehavior : Character
     protected Vector3 lastTargetPosition;
 
     [Header("NPC Attack Attributes")]
+    public GameObject prefabRangedAttack;
     public bool doAtk;
     public float atkDelay;
+    public float projectileSpeed;
     protected float atkCount;
 
     protected virtual void Start()
@@ -76,6 +78,24 @@ public abstract class EnemyBehavior : Character
             myAnimator.SetTrigger("Atk");
             doAtk = true;
         }
+    }
+
+    protected void AttackRanged() {
+        if (doAtk == false) {
+            lastTargetPosition = target.position;
+            GameObject GO = Instantiate(prefabRangedAttack,transform.position,Quaternion.identity);
+            GO.GetComponent<BoneAttackController>().AimTarget(lastTargetPosition, projectileSpeed,atkDamage);
+            myAnimator.SetTrigger("Atk");
+            doAtk = true;
+        }
+    }
+
+    protected void FacePlayer() {
+        Vector2 dir = target.position - transform.position;
+        float clampX = Mathf.Clamp(dir.x, -0.1f, 0.1f);
+        float clampY = Mathf.Clamp(dir.y, -0.1f, 0.1f); ;
+        myAnimator.SetFloat("X", clampX);
+        myAnimator.SetFloat("Y", clampY);
     }
 
 }

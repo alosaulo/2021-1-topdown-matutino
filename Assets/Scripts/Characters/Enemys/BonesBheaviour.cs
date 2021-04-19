@@ -2,29 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BonesBheaviour : MonoBehaviour
+public class BonesBheaviour : EnemyBehavior
 {
-
-    public float valX;
-    public float valY;
-
-    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponent<Animator>();
+        base.Start();
     }
 
     // Update is called once per frame
     void Update()
     {
-        ChangeXY();
+        CountAtk();
     }
 
-    void ChangeXY() {
-        animator.SetFloat("X", valX);
-        animator.SetFloat("Y", valY);
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        FacePlayer();
+        AttackRanged();
     }
 
 }

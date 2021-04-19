@@ -466,8 +466,8 @@ MonoBehaviour:
   atkDamage: 1
   maxHealth: 10
   currentHealth: 10
-  dashSpeed: 2
-  dashDelayAnimation: 0.2
+  dashSpeed: 0.8
+  dashDelayAnimation: 0.5
   dashCooldown: 1
 --- !u!114 &1640492360
 MonoBehaviour:

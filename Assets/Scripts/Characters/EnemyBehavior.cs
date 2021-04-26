@@ -67,6 +67,11 @@ public abstract class EnemyBehavior : Character
         myBody.MovePosition(Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime));
     }
 
+    protected void FollowPlayerNB() {
+        myAnimator.SetBool("Walk", true);
+        myBody.MovePosition(Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime));
+    }
+
     protected void AttackMelee()
     {
         if (doAtk == false)

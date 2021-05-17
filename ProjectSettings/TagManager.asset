@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Attack
+  - HealthPotion
   layers:
   - Default
   - TransparentFX

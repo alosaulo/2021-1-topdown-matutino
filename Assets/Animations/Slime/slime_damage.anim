@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Spider-Enemy-Jump
+  m_Name: slime_damage
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,13 +20,16 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 5522428477718397727, guid: 541fa8d1369144a4e813ba2b53fe9aac,
+      value: {fileID: -4075569038013859034, guid: f3e5a7fecbf69eb41a3f4fca2f15196d,
         type: 3}
     - time: 0.083333336
-      value: {fileID: 6686333142076185654, guid: 541fa8d1369144a4e813ba2b53fe9aac,
+      value: {fileID: -3193244154607436952, guid: f3e5a7fecbf69eb41a3f4fca2f15196d,
         type: 3}
-    - time: 0.5
-      value: {fileID: 3132895287096218169, guid: 541fa8d1369144a4e813ba2b53fe9aac,
+    - time: 0.16666667
+      value: {fileID: 5664698580577606986, guid: f3e5a7fecbf69eb41a3f4fca2f15196d,
+        type: 3}
+    - time: 0.25
+      value: {fileID: -2108442191993695048, guid: f3e5a7fecbf69eb41a3f4fca2f15196d,
         type: 3}
     attribute: m_Sprite
     path: 
@@ -47,20 +50,21 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 5522428477718397727, guid: 541fa8d1369144a4e813ba2b53fe9aac, type: 3}
-    - {fileID: 6686333142076185654, guid: 541fa8d1369144a4e813ba2b53fe9aac, type: 3}
-    - {fileID: 3132895287096218169, guid: 541fa8d1369144a4e813ba2b53fe9aac, type: 3}
+    - {fileID: -4075569038013859034, guid: f3e5a7fecbf69eb41a3f4fca2f15196d, type: 3}
+    - {fileID: -3193244154607436952, guid: f3e5a7fecbf69eb41a3f4fca2f15196d, type: 3}
+    - {fileID: 5664698580577606986, guid: f3e5a7fecbf69eb41a3f4fca2f15196d, type: 3}
+    - {fileID: -2108442191993695048, guid: f3e5a7fecbf69eb41a3f4fca2f15196d, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.5833333
+    m_StopTime: 0.33333334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 0
+    m_LoopTime: 1
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0
@@ -74,11 +78,4 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events:
-  - time: 0.5
-    functionName: TackleTarget
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
+  m_Events: []

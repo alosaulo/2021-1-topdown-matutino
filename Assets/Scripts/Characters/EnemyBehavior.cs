@@ -4,9 +4,9 @@ using UnityEngine;
 
 public abstract class EnemyBehavior : Character
 {
-
     protected Transform target;
     protected Vector3 lastTargetPosition;
+    protected PlayerController player;
 
     [Header("NPC Attack Attributes")]
     public GameObject prefabRangedAttack;
@@ -15,10 +15,15 @@ public abstract class EnemyBehavior : Character
     public float projectileSpeed;
     protected float atkCount;
 
+    [Header("Drops")]
+    public float dropChance;
+    public GameObject dropPotionPrefab;
+
     protected virtual void Start()
     {
         base.Start();
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        target = player.transform;
     }
     // Update is called once per frame
     void Update()
@@ -101,6 +106,27 @@ public abstract class EnemyBehavior : Character
         float clampY = Mathf.Clamp(dir.y, -0.1f, 0.1f); ;
         myAnimator.SetFloat("X", clampX);
         myAnimator.SetFloat("Y", clampY);
+    }
+
+    protected void DropPotion() {
+        if (dropPotionPrefab != null && player.IsFullHealth()) {
+            float chance = Random.Range(0, 100);
+            if (chance >= 50) { 
+                Instantiate(dropPotionPrefab, transform.position, Quaternion.identity);
+            }
+        }
+    }
+
+    public override void DestroyGameObject()
+    {
+        DropPotion();
+        base.DestroyGameObject();
+    }
+
+    public override void RecieveDamage(float damage)
+    {
+        myBody.velocity = Vector2.zero;
+        base.RecieveDamage(damage);
     }
 
 }

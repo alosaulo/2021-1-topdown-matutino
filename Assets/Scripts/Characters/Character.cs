@@ -35,7 +35,7 @@ public abstract class Character : MonoBehaviour
         
     }
 
-    public void RecieveDamage(float damage) {
+    public virtual void RecieveDamage(float damage) {
         myAnimator.SetTrigger("Hurt");
         if (currentHealth > 1)
             currentHealth = currentHealth - damage;
@@ -54,11 +54,15 @@ public abstract class Character : MonoBehaviour
         }
     }
 
+    public bool IsFullHealth() {
+        return currentHealth < maxHealth;
+    }
+
     public void DoDamage() { 
         
     }
 
-    public void DestroyGameObject() {
+    public virtual void DestroyGameObject() {
         Destroy(gameObject);
     }
 

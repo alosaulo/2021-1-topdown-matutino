@@ -19,8 +19,10 @@ public class BonesBheaviour : EnemyBehavior
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        FacePlayer();
-        AttackRanged();
+        if(collision.tag == "Player") { 
+            FacePlayer();
+            AttackRanged();
+        }
     }
 
 }

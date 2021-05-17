@@ -121,7 +121,11 @@ public class PlayerController : Character
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
+        if (collision.tag == "HealthPotion" && currentHealth < maxHealth) {
+            PotionController potion = collision.GetComponent<PotionController>();
+            GainHealth(potion.HealthPoints);
+            Destroy(potion.gameObject);
+        }
     }
 
 }

@@ -1,16 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public abstract class EnemyBehavior : Character
 {
     protected Transform target;
     protected Vector3 lastTargetPosition;
     protected PlayerController player;
 
+    public Image healthImage;
+
     [Header("NPC Attack Attributes")]
     public GameObject prefabRangedAttack;
     public bool doAtk;
+    public bool isReadyToAtack;
     public float atkDelay;
     public float projectileSpeed;
     protected float atkCount;
@@ -24,6 +29,7 @@ public abstract class EnemyBehavior : Character
         base.Start();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         target = player.transform;
+        isReadyToAtack = true;
     }
     // Update is called once per frame
     void Update()
@@ -40,6 +46,7 @@ public abstract class EnemyBehavior : Character
             {
                 doAtk = false;
                 atkCount = 0;
+                isReadyToAtack = true;
             }
         }
     }
@@ -62,6 +69,11 @@ public abstract class EnemyBehavior : Character
                 myAnimator.SetFloat("Y", -1);
             myAnimator.SetFloat("X", 0);
         }
+    }
+
+    protected void FollowPlayerNoAnimator() {
+        Vector2 dir = target.position - transform.position;
+        myBody.MovePosition(Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime));
     }
 
     protected void FollowPlayer()
@@ -127,6 +139,35 @@ public abstract class EnemyBehavior : Character
     {
         myBody.velocity = Vector2.zero;
         base.RecieveDamage(damage);
+        if (healthImage != null)
+        {
+            healthImage.fillAmount = currentHealth/maxHealth;
+        }
+    }
+
+    public void DoAttackMelee()
+    {
+        if (isReadyToAtack) {
+            isReadyToAtack = false;
+            doAtk = true;
+            lastTargetPosition = target.position;
+            Vector2 dir = lastTargetPosition - transform.position;
+            Debug.DrawRay(transform.position, dir, Color.red, 2f);
+            int layer = 1 << 10;
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, 1, layer);
+            if (hit)
+            {
+                if (hit.collider.tag == "Player")
+                {
+                    PlayerController player = hit.transform.GetComponent<PlayerController>();
+                    player.RecieveDamage(atkDamage);
+                }
+            }
+        }
+    }
+
+    protected float GetDistance() {
+        return Vector2.Distance(transform.position, target.position);
     }
 
 }

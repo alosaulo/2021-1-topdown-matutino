@@ -1,43 +1,34 @@
 fileFormatVersion: 2
-guid: 8c40e928ea0758740b93e0eb83f77c1d
+guid: d3337974b3e17854482fbcfb28b0770e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6790397550550039533
-    second: PotionSet16x16_0
+      213: 5371765007216691003
+    second: floatskull_0
   - first:
-      213: -9213190254257497913
-    second: PotionSet16x16_1
+      213: 2807537119328435055
+    second: floatskull_1
   - first:
-      213: -6625618715249705997
-    second: PotionSet16x16_2
+      213: -2143825409899142892
+    second: floatskull_2
   - first:
-      213: 1265224087129856468
-    second: PotionSet16x16_3
+      213: 2754369853610783667
+    second: floatskull_3
   - first:
-      213: 8011399039779918637
-    second: PotionSet16x16_4
+      213: 2328232991835691399
+    second: floatskull_4
   - first:
-      213: -1173011324186097573
-    second: PotionSet16x16_5
+      213: -7830768821019902596
+    second: floatskull_5
   - first:
-      213: -6225254378125999529
-    second: PotionSet16x16_6
+      213: -960595643645378270
+    second: floatskull_6
   - first:
-      213: 1397972277644102863
-    second: PotionSet16x16_7
+      213: -4924337746455217633
+    second: floatskull_7
   - first:
-      213: -7900886581673206544
-    second: PotionSet16x16_8
-  - first:
-      213: -3979484866625242358
-    second: PotionSet16x16_9
-  - first:
-      213: 2788233037933046462
-    second: PotionSet16x16_10
-  - first:
-      213: 6708194912662709793
-    second: PotionSet16x16_11
+      213: -7295401297986389435
+    second: floatskull_8
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -81,7 +72,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -123,253 +114,190 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PotionSet16x16_0
+      name: floatskull_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 32.666664
+        y: 32
         width: 16
-        height: 16.333334
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: debb73c58965c3e50800000000000000
-      internalID: 6790397550550039533
+      spriteID: b37460030d75c8a40800000000000000
+      internalID: 5371765007216691003
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PotionSet16x16_1
+      name: floatskull_1
       rect:
         serializedVersion: 2
         x: 16
-        y: 33
+        y: 32
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c814eef64c242080800000000000000
-      internalID: -9213190254257497913
+      spriteID: f6b7b43922066f620800000000000000
+      internalID: 2807537119328435055
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PotionSet16x16_2
+      name: floatskull_2
       rect:
         serializedVersion: 2
         x: 32
-        y: 33
+        y: 32
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3fb7c5ce1e21d04a0800000000000000
-      internalID: -6625618715249705997
+      spriteID: 411618ee52a9f32e0800000000000000
+      internalID: -2143825409899142892
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PotionSet16x16_3
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 33
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4d994a29a9afe8110800000000000000
-      internalID: 1265224087129856468
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PotionSet16x16_4
+      name: floatskull_3
       rect:
         serializedVersion: 2
         x: 0
-        y: 16.666666
+        y: 16
         width: 16
-        height: 16.333334
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d23dcfffaf43e2f60800000000000000
-      internalID: 8011399039779918637
+      spriteID: 3b3f380e9cc793620800000000000000
+      internalID: 2754369853610783667
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PotionSet16x16_5
+      name: floatskull_4
       rect:
         serializedVersion: 2
         x: 16
-        y: 16.666666
+        y: 16
         width: 16
-        height: 16.333334
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5880606a60a8bfe0800000000000000
-      internalID: -1173011324186097573
+      spriteID: 78916b0129b8f4020800000000000000
+      internalID: 2328232991835691399
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PotionSet16x16_6
+      name: floatskull_5
       rect:
         serializedVersion: 2
         x: 32
-        y: 16.666666
+        y: 16
         width: 16
-        height: 16.333334
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 752ca5b30247b99a0800000000000000
-      internalID: -6225254378125999529
+      spriteID: c7d77e81f35835390800000000000000
+      internalID: -7830768821019902596
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PotionSet16x16_7
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 16.666666
-        width: 16
-        height: 16.333334
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fcc02d63168966310800000000000000
-      internalID: 1397972277644102863
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PotionSet16x16_8
+      name: floatskull_6
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 16
-        height: 17
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0fcd7b0c3896a5290800000000000000
-      internalID: -7900886581673206544
+      spriteID: 221cabff9574ba2f0800000000000000
+      internalID: -960595643645378270
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PotionSet16x16_9
+      name: floatskull_7
       rect:
         serializedVersion: 2
         x: 16
         y: 0
         width: 16
-        height: 17
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a0b72c7199706c8c0800000000000000
-      internalID: -3979484866625242358
+      spriteID: f1a3d7ce8ec39abb0800000000000000
+      internalID: -4924337746455217633
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PotionSet16x16_10
+      name: floatskull_8
       rect:
         serializedVersion: 2
         x: 32
         y: 0
         width: 16
-        height: 17
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ebae101ec2bc1b620800000000000000
-      internalID: 2788233037933046462
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PotionSet16x16_11
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 0
-        width: 16
-        height: 17
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 126e7554bbb481d50800000000000000
-      internalID: 6708194912662709793
+      spriteID: 54af8931c2781ca90800000000000000
+      internalID: -7295401297986389435
       vertices: []
       indices: 
       edges: []

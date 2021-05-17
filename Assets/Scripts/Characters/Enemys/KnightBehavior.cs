@@ -49,7 +49,8 @@ public class KnightBehavior : EnemyBehavior
         }
     }
 
-    public void DoAttack() {
+    public void DoAttack()
+    {
         Vector2 dir = lastTargetPosition - transform.position;
         Debug.DrawRay(transform.position, dir, Color.red, 2f);
         int layer = 1 << 10;
@@ -62,7 +63,6 @@ public class KnightBehavior : EnemyBehavior
                 player.RecieveDamage(atkDamage);
             }
         }
-        
     }
 
 }

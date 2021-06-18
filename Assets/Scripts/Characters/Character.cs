@@ -8,8 +8,10 @@ public abstract class Character : MonoBehaviour
 
     public GameManager gameManager;
 
+    protected AudioSource audioSource;
     protected Animator myAnimator;
     protected Rigidbody2D myBody;
+    Collider2D collider2D;
 
     protected bool isDead = false;
 
@@ -19,7 +21,8 @@ public abstract class Character : MonoBehaviour
     [Header("Health")]
     public float maxHealth;
     public float currentHealth;
-    
+    [Header("Audioclips")]
+    public AudioClip deathClip;
 
     // Start is called before the first frame update
     protected virtual void Start()
@@ -27,6 +30,8 @@ public abstract class Character : MonoBehaviour
         gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         myAnimator = GetComponent<Animator>();
         myBody = GetComponent<Rigidbody2D>();
+        collider2D = GetComponent<Collider2D>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -41,6 +46,9 @@ public abstract class Character : MonoBehaviour
             currentHealth = currentHealth - damage;
         else {
             currentHealth = 0;
+            isDead = true;
+            myBody.velocity = Vector2.zero;
+            collider2D.enabled = false;
             myAnimator.SetTrigger("Death");
         }
     }
@@ -66,5 +74,7 @@ public abstract class Character : MonoBehaviour
         Destroy(gameObject);
     }
 
-
+    public void PlayDeathSound() {
+        audioSource.PlayOneShot(deathClip);
+    }
 }

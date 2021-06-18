@@ -6,6 +6,8 @@ public class FloatSkullBehaviour : EnemyBehavior
 {
     [Header("Explosion Settings")]
     public float explosionRadius;
+    [Header("Audioclips")]
+    public AudioClip explosionClip;
 
     // Start is called before the first frame update
     void Start()
@@ -16,11 +18,14 @@ public class FloatSkullBehaviour : EnemyBehavior
     // Update is called once per frame
     void Update()
     {
-        float distance = GetDistance();
-        if (distance > 1)
-            FollowPlayerNoAnimator();
-        else
-            DoExplosion();
+        if (isDead == false)
+        {
+            float distance = GetDistance();
+            if (distance > 1)
+                FollowPlayerNoAnimator();
+            else
+                DoExplosion();
+        }
     }
 
     public void DoExplosion()
@@ -41,6 +46,7 @@ public class FloatSkullBehaviour : EnemyBehavior
                 }
             }
             myAnimator.SetTrigger("Explosion");
+            audioSource.PlayOneShot(explosionClip);
         }
     }
 

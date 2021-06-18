@@ -67,6 +67,7 @@ public class SpiderBehaviour : EnemyBehavior
             float dist = Vector2.Distance(target.position, transform.position);
             if (doAtk == false)
             {
+                StartAgent();
                 if (AtkDistance < dist)
                 {
                     FollowPlayerNB();
@@ -78,12 +79,14 @@ public class SpiderBehaviour : EnemyBehavior
                     doAtk = true;
                     collider2D.isTrigger = true;
                     SpiderVision.SetActive(false);
+                    StopAgent();
                 }
             }
             else
             {
                 isWalking = false;
                 doAtk = false;
+                StopAgent();
             }
         }
         ChangeAnimation();

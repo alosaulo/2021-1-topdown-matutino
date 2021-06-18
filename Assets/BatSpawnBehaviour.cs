@@ -13,11 +13,14 @@ public class BatSpawnBehaviour : EnemyBehavior
     // Update is called once per frame
     void Update()
     {
+        if(isDead == false) { 
         CountAtk();
         float distance = GetDistance();
-        if (distance > 1)
-            FollowPlayerNoAnimator();
-        else
-            DoAttackMelee();
+            if (distance > 1) { 
+                FollowPlayerNoAnimator();
+            }
+            else
+                DoAttackMelee();
+        }
     }
 }

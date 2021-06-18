@@ -14,6 +14,7 @@ public class KnightBehavior : EnemyBehavior
     void Update()
     {
         CountAtk();
+        Debug.Log(agent.velocity);
     }
 
     private void LateUpdate()
@@ -25,6 +26,7 @@ public class KnightBehavior : EnemyBehavior
     {
         if (collision.tag == "Player")
         {
+            StartAgent();
             PlayerController player = collision.gameObject.GetComponent<PlayerController>();
             target = player.transform;
             Debug.DrawRay(transform.position,
@@ -35,6 +37,7 @@ public class KnightBehavior : EnemyBehavior
                 FollowPlayer();
             }
             else {
+                StopAgent();
                 AttackMelee();
             }
         }
@@ -43,6 +46,7 @@ public class KnightBehavior : EnemyBehavior
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.tag == "Player") {
+            StopAgent();
             float x = myAnimator.GetFloat("X");
             float y = myAnimator.GetFloat("Y");
             NormalizePosition(x, y);
@@ -64,5 +68,4 @@ public class KnightBehavior : EnemyBehavior
             }
         }
     }
-
 }

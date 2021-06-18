@@ -2,15 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.AI;
 
-[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Rigidbody2D), typeof(NavMeshAgent))]
 public abstract class EnemyBehavior : Character
 {
     protected Transform target;
     protected Vector3 lastTargetPosition;
     protected PlayerController player;
+    protected NavMeshAgent agent;
 
     public Image healthImage;
+    [Header("Score Points")]
+    public int scorePoints;
 
     [Header("NPC Attack Attributes")]
     public GameObject prefabRangedAttack;
@@ -30,6 +34,10 @@ public abstract class EnemyBehavior : Character
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         target = player.transform;
         isReadyToAtack = true;
+        agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
+        agent.speed = speed;
     }
     // Update is called once per frame
     void Update()
@@ -72,21 +80,26 @@ public abstract class EnemyBehavior : Character
     }
 
     protected void FollowPlayerNoAnimator() {
-        Vector2 dir = target.position - transform.position;
-        myBody.MovePosition(Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime));
+        //Vector2 dir = target.position - transform.position;
+        agent.destination = target.position;
     }
 
     protected void FollowPlayer()
     {
-        Vector2 dir = target.position - transform.position;
-        myAnimator.SetFloat("X", dir.x);
-        myAnimator.SetFloat("Y", dir.y);
-        myBody.MovePosition(Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime));
+        //Vector2 dir = target.position - transform.position;
+        float xPos = agent.velocity.x;
+        float yPos = agent.velocity.y;
+
+        myAnimator.SetFloat("X", xPos * 100);
+        myAnimator.SetFloat("Y", yPos * 100);
+        //myBody.MovePosition(Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime));
+        agent.destination = target.position;
     }
 
     protected void FollowPlayerNB() {
         myAnimator.SetBool("Walk", true);
-        myBody.MovePosition(Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime));
+        //myBody.MovePosition(Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime));
+        agent.destination = target.position;
     }
 
     protected void AttackMelee()
@@ -139,6 +152,10 @@ public abstract class EnemyBehavior : Character
     {
         myBody.velocity = Vector2.zero;
         base.RecieveDamage(damage);
+        if (isDead) { 
+            StopAgent();
+            GameManager._instance.UpdateScore(scorePoints);
+        }
         if (healthImage != null)
         {
             healthImage.fillAmount = currentHealth/maxHealth;
@@ -168,6 +185,20 @@ public abstract class EnemyBehavior : Character
 
     protected float GetDistance() {
         return Vector2.Distance(transform.position, target.position);
+    }
+
+    protected void StopAgent() {
+        if(isDead == false) { 
+            agent.isStopped = true;
+            agent.velocity = Vector3.zero;
+        }
+    }
+
+    protected void StartAgent()
+    {
+        if(isDead == false) { 
+            agent.isStopped = false;
+        }
     }
 
 }

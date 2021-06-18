@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHUD : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class PlayerHUD : MonoBehaviour
     public GameObject prefabCoracao;
     public GameObject barraVida;
     public List<CoracaoController> coracoes;
+
+    public Text txtScore;
 
     PlayerController player;
 

@@ -5,6 +5,10 @@ using UnityEngine;
 public class PlayerController : Character
 {
 
+    [Header("Audio Clips")]
+    public AudioClip hitClip;
+    public AudioClip atkClip;
+
     [Header("Dash Attributes")]
     public float dashSpeed;
     public float dashDelayAnimation;
@@ -15,6 +19,8 @@ public class PlayerController : Character
 
     bool dashing;
     float lastH, lastV;
+
+    bool isAtk = false;
 
     // Start is called before the first frame update
     protected override void Start()
@@ -126,6 +132,16 @@ public class PlayerController : Character
             GainHealth(potion.HealthPoints);
             Destroy(potion.gameObject);
         }
+    }
+
+    public override void RecieveDamage(float damage)
+    {
+        base.RecieveDamage(damage);
+        audioSource.PlayOneShot(hitClip);
+    }
+
+    public void PlayAtkSound() {
+        audioSource.PlayOneShot(atkClip);
     }
 
 }

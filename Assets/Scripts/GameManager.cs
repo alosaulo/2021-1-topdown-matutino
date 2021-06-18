@@ -4,8 +4,16 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager _instance;
+
     public PlayerHUD playerHUD;
     public PlayerController player;
+    int scorePoints = 0;
+
+    private void Awake()
+    {
+        _instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -18,4 +26,10 @@ public class GameManager : MonoBehaviour
     {
         
     }
+
+    public void UpdateScore(int score) {
+        scorePoints = score + scorePoints;
+        playerHUD.txtScore.text = scorePoints.ToString();
+    }
+
 }

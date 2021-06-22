@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager _instance;
 
     public PlayerHUD playerHUD;
-    public PlayerController player;
+    public PlayerKnightController player;
     int scorePoints = 0;
 
     private void Awake()

@@ -9,7 +9,7 @@ public abstract class EnemyBehavior : Character
 {
     protected Transform target;
     protected Vector3 lastTargetPosition;
-    protected PlayerController player;
+    protected PlayerKnightController player;
     protected NavMeshAgent agent;
 
     public Image healthImage;
@@ -31,7 +31,7 @@ public abstract class EnemyBehavior : Character
     protected virtual void Start()
     {
         base.Start();
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerKnightController>();
         target = player.transform;
         isReadyToAtack = true;
         agent = GetComponent<NavMeshAgent>();

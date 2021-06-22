@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerAtkController : MonoBehaviour
 {
-    public PlayerController player;
+    public PlayerKnightController player;
 
     private void Start()
     {

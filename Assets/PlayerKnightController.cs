@@ -13,6 +13,12 @@ public class PlayerKnightController : Character
     public float dashDelayAnimation;
     public float dashCooldown;
 
+    SpriteRenderer sprite;
+
+    [Header("Atk Collider")]
+    public GameObject AtkRightCollider;
+    public GameObject AtkLeftCollider;
+
     float dashCount;
     float dashCooldownCount;
 
@@ -26,6 +32,7 @@ public class PlayerKnightController : Character
     protected override void Start()
     {
         base.Start();
+        sprite = GetComponent<SpriteRenderer>();
         dashCooldownCount = dashCooldown;
     }
 
@@ -47,6 +54,10 @@ public class PlayerKnightController : Character
             if (Input.GetButton("Fire1"))
             {
                 myAnimator.SetTrigger("Atk");
+                if (sprite.flipX == false)
+                    AtkRightCollider.SetActive(true);
+                else
+                    AtkLeftCollider.SetActive(true);
             }
 
             /*if (Input.GetButton("Fire2") &&
@@ -78,16 +89,26 @@ public class PlayerKnightController : Character
     {
         myBody.velocity = speed * new Vector2(hAxis, vAxis).normalized * Time.fixedDeltaTime;
 
-        if (Mathf.Abs(hAxis) >= 0.1)
+        if (hAxis > 0)
         {
-            myAnimator.SetFloat("X", hAxis);
-            myAnimator.SetFloat("Y", 0);
+            sprite.flipX = false;
+            myAnimator.SetBool("Walk", true);
         }
-        if (Mathf.Abs(vAxis) >= 0.1)
+        else if (hAxis < 0)
         {
-            myAnimator.SetFloat("Y", vAxis);
-            myAnimator.SetFloat("X", 0);
+            sprite.flipX = true;
+            myAnimator.SetBool("Walk", true);
         }
+
+        if (Mathf.Abs(vAxis) >= 0.1f) {
+            myAnimator.SetBool("Walk", true);
+        }
+
+        if (Mathf.Abs(hAxis) <= 0.1f && Mathf.Abs(vAxis) <= 0.1f) {
+            myAnimator.SetBool("Walk", false);
+        }
+
+
     }
 
     void DoDash()
@@ -108,6 +129,8 @@ public class PlayerKnightController : Character
 
     public void SetAtack()
     {
+        AtkRightCollider.SetActive(false);
+        AtkLeftCollider.SetActive(false);
         myAnimator.SetBool("Atk", false);
     }
 

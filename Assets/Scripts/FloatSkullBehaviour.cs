@@ -41,7 +41,7 @@ public class FloatSkullBehaviour : EnemyBehavior
             if (hit) {
                 if (hit.collider.tag == "Player")
                 {
-                    PlayerController player = hit.transform.GetComponent<PlayerController>();
+                    PlayerKnightController player = hit.transform.GetComponent<PlayerKnightController>();
                     player.RecieveDamage(atkDamage);
                 }
             }

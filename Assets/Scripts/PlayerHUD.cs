@@ -12,7 +12,7 @@ public class PlayerHUD : MonoBehaviour
 
     public Text txtScore;
 
-    PlayerController player;
+    PlayerKnightController player;
 
     float maxHealth;
     float currentHealth;

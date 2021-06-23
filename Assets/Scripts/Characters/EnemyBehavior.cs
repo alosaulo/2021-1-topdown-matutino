@@ -179,7 +179,7 @@ public abstract class EnemyBehavior : Character
             {
                 if (hit.collider.tag == "Player")
                 {
-                    PlayerController player = hit.transform.GetComponent<PlayerController>();
+                    PlayerKnightController player = hit.transform.GetComponent<PlayerKnightController>();
                     player.RecieveDamage(atkDamage);
                 }
             }

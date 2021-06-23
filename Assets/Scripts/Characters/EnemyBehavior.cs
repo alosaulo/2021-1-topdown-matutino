@@ -15,6 +15,9 @@ public abstract class EnemyBehavior : Character
     public Image healthImage;
     [Header("Score Points")]
     public int scorePoints;
+    
+    [Header("Origin")]
+    public Transform origin;
 
     [Header("NPC Attack Attributes")]
     public GameObject prefabRangedAttack;
@@ -118,7 +121,7 @@ public abstract class EnemyBehavior : Character
     protected void AttackRanged() {
         if (doAtk == false) {
             lastTargetPosition = target.position;
-            GameObject GO = Instantiate(prefabRangedAttack,transform.position,Quaternion.identity);
+            GameObject GO = Instantiate(prefabRangedAttack, origin.position, Quaternion.identity);
             GO.GetComponent<BoneAttackController>().AimTarget(lastTargetPosition, projectileSpeed,atkDamage);
             myAnimator.SetTrigger("Atk");
             doAtk = true;

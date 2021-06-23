@@ -19,9 +19,16 @@ public class BonesBheaviour : EnemyBehavior
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.tag == "Player") { 
-            FacePlayer();
-            AttackRanged();
+        if(collision.tag == "Player") {
+            float distance = GetDistance();
+            if(distance > 7) {
+                StartAgent();
+                agent.SetDestination(target.position);
+            }
+            else {
+                StopAgent();
+                AttackRanged();
+            }
         }
     }
 
